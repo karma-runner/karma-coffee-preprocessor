@@ -1,9 +1,9 @@
-# testacular-coffee-preprocessor
+# karma-coffee-preprocessor
 
 > Preprocessor to compile CoffeeScript on the fly.
 
-For more information on Testacular see the [homepage].
+For more information on Karma see the [homepage].
 
 
-[homepage]: http://testacular.github.com
+[homepage]: http://karma-runner.github.com
 

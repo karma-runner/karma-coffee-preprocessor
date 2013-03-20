@@ -1,17 +1,17 @@
 {
-  "name": "testacular-coffee-preprocessor",
+  "name": "karma-coffee-preprocessor",
   "version": "0.0.1",
-  "description": "A Testacular plugin. Compile coffee script on the fly.",
+  "description": "A Karma plugin. Compile coffee script on the fly.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/testacular/testacular-coffee-preprocessor.git"
+    "url": "git://github.com/karma-runner/karma-coffee-preprocessor.git"
   },
   "keywords": [
-    "testacular-plugin",
+    "karma-plugin",
     "preprocessor",
     "coffee"
   ],
@@ -20,7 +20,7 @@
     "coffee-script": "1.4.0"
   },
   "peerDependencies": {
-    "testacular": "~0.7"
+    "karma": "~0.9"
   },
   "license": "MIT"
 }
