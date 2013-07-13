@@ -19,6 +19,9 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
     log.debug('Processing "%s".', file.originalPath);
     file.path = transformPath(file.originalPath);
 
+    // Clone the options because coffee.compile mutates them
+    opts = helper._.clone(options)
+
     try {
       processed = coffee.compile(content, options);
     } catch (e) {
