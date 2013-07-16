@@ -23,7 +23,7 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
     opts = helper._.clone(options)
 
     try {
-      processed = coffee.compile(content, options);
+      processed = coffee.compile(content, opts);
     } catch (e) {
       log.error('%s\n  at %s', e.message, file.originalPath);
     }
