@@ -1,11 +1,12 @@
 var coffee = require('coffee-script');
-
+var path = require('path');
 var createCoffeePreprocessor = function(args, config, logger, helper) {
   config = config || {};
 
   var log = logger.create('preprocessor.coffee');
   var defaultOptions = {
-    bare: true
+    bare: true,
+    sourceMap: false
   };
   var options = helper.merge(defaultOptions, args.options || {}, config.options || {});
 
@@ -14,7 +15,9 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
   };
 
   return function(content, file, done) {
-    var processed = null;
+    var result = null;
+    var map;
+    var datauri;
 
     log.debug('Processing "%s".', file.originalPath);
     file.path = transformPath(file.originalPath);
@@ -23,12 +26,21 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
     opts = helper._.clone(options)
 
     try {
-      processed = coffee.compile(content, options);
+      result = coffee.compile(content, opts);
     } catch (e) {
       log.error('%s\n  at %s', e.message, file.originalPath);
     }
 
-    done(processed);
+    if (result.v3SourceMap) {
+      map = JSON.parse(result.v3SourceMap)
+      map.sources[0] = path.basename(file.originalPath)
+      map.sourcesContent = [content]
+      map.file = path.basename(file.path)
+      datauri = "data:application/json;charset=utf-8;base64," + new Buffer(JSON.stringify(map)).toString('base64')
+      done("//@ sourceMappingURL=" + datauri + "\n" + result.js);
+    } else {
+      done(result.js || result)
+    }
   };
 };
 
