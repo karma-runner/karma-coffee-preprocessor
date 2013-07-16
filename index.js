@@ -29,6 +29,7 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
       result = coffee.compile(content, opts);
     } catch (e) {
       log.error('%s\n  at %s', e.message, file.originalPath);
+      return;
     }
 
     if (result.v3SourceMap) {
