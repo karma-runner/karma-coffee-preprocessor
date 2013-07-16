@@ -34,7 +34,8 @@ module.exports = function(config) {
     coffeePreprocessor: {
       // options passed to the coffee compiler
       options: {
-        bare: true
+        bare: true,
+        sourceMap: false
       },
       // transforming the filenames
       transformPath: function(path) {
@@ -44,6 +45,8 @@ module.exports = function(config) {
   });
 };
 ```
+
+If you set the `sourceMap` coffee compiler option to `true` then the generated source map will be inlined as a data-uri.
 
 ----
 
