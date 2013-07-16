@@ -12,7 +12,8 @@
   },
   "keywords": [
     "karma-plugin",
-    "preprocessor",
+    "karma-preprocessor",
+    "coffee-script",
     "coffee"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
