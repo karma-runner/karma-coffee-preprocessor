@@ -21,7 +21,7 @@
     "coffee-script": "1.6.3"
   },
   "peerDependencies": {
-    "karma": "~0.9"
+    "karma": ">=0.9"
   },
   "license": "MIT",
   "devDependencies": {
