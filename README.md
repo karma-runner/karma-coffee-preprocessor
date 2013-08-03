@@ -10,8 +10,8 @@ The easiest way is to keep `karma-coffee-preprocessor` as a devDependency in you
 ```json
 {
   "devDependencies": {
-    "karma": "~0.9",
-    "karma-coffee-preprocessor": "~0.0.1"
+    "karma": "~0.10",
+    "karma-coffee-preprocessor": "~0.1"
   }
 }
 ```
@@ -30,7 +30,7 @@ module.exports = function(config) {
     preprocessors: {
       '**/*.coffee': ['coffee']
     },
-    
+
     coffeePreprocessor: {
       // options passed to the coffee compiler
       options: {
