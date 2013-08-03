@@ -23,7 +23,7 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
     file.path = transformPath(file.originalPath);
 
     // Clone the options because coffee.compile mutates them
-    opts = helper._.clone(options)
+    var opts = helper._.clone(options)
 
     try {
       result = coffee.compile(content, opts);
