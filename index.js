@@ -38,7 +38,7 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
       map.sourcesContent = [content]
       map.file = path.basename(file.path)
       datauri = "data:application/json;charset=utf-8;base64," + new Buffer(JSON.stringify(map)).toString('base64')
-      done("//@ sourceMappingURL=" + datauri + "\n" + result.js);
+      done(result.js + "\n//@ sourceMappingURL=" + datauri + "\n");
     } else {
       done(result.js || result)
     }
