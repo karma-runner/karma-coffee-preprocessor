@@ -29,6 +29,12 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
       result = coffee.compile(content, opts);
     } catch (e) {
       log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line);
+      if (typeof args.preprocessError === 'function') {
+        args.preprocessError();
+      } else if (typeof config.preprocessError == 'function') {
+        config.preprocessError();
+      }
+
       return;
     }
 
