@@ -29,7 +29,7 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
       result = coffee.compile(content, opts);
     } catch (e) {
       log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line);
-      return;
+      return done(e, null);
     }
 
     if (result.v3SourceMap) {
@@ -39,9 +39,9 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
       map.file = path.basename(file.path)
       file.sourceMap = map;
       datauri = 'data:application/json;charset=utf-8;base64,' + new Buffer(JSON.stringify(map)).toString('base64')
-      done(result.js + '\n//@ sourceMappingURL=' + datauri + '\n');
+      done(null, result.js + '\n//@ sourceMappingURL=' + datauri + '\n');
     } else {
-      done(result.js || result)
+      done(null, result.js || result)
     }
   };
 };
