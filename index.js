@@ -11,7 +11,7 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
   var options = helper.merge(defaultOptions, args.options || {}, config.options || {});
 
   var transformPath = args.transformPath || config.transformPath || function(filepath) {
-    return filepath.replace(/\.coffee$/, '.js');
+    return filepath.replace(/\.coffee$/, '.js').replace(/\.litcoffee$/, '.js');
   };
 
   return function(content, file, done) {
@@ -24,6 +24,9 @@ var createCoffeePreprocessor = function(args, config, logger, helper) {
 
     // Clone the options because coffee.compile mutates them
     var opts = helper._.clone(options)
+
+    // Set literate option based on file extension
+    opts.literate = /\.litcoffee$/.test(file.originalPath);
 
     try {
       result = coffee.compile(content, opts);
