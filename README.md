@@ -39,6 +39,11 @@ module.exports = function(config) {
       transformPath: function(path) {
         return path.replace(/\.coffee$/, '.js');
       }
+    },
+
+    // make sure to include the .coffee files not the compiled .js files 
+    files: {
+      '**/*.coffee'
     }
   });
 };
