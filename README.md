@@ -42,9 +42,9 @@ module.exports = function(config) {
     },
 
     // make sure to include the .coffee files not the compiled .js files 
-    files: {
+    files: [
       '**/*.coffee'
-    }
+    ]
   });
 };
 ```
