@@ -1,3 +1,12 @@
+<a name"0.3.0"></a>
+## 0.3.0 (2015-07-09)
+
+
+#### Features
+
+* Depend on any 1.* version of coffee-script ([ed41be72](https://github.com/karma-runner/karma-coffee-preprocessor/commit/ed41be72))
+
+
 <a name"0.2.1"></a>
 ### 0.2.1 (2015-07-09)
 
