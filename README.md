@@ -49,6 +49,7 @@ module.exports = function(config) {
 
 If you set the `sourceMap` coffee compiler option to `true` then the generated source map will be inlined as a data-uri.
 
+Note that paths like "**/*.coffee" inside your "preprocessor" list will not match files where you are traversing up a directory (like "../app/*.coffee" inside your "files" list) or where your basePath goes up a directory. If you need to match these, use something like `preprocessors: { '../**/*.coffee': ['coffee'] }`.
 ----
 
 For more information on Karma see the [homepage].
