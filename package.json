@@ -18,7 +18,8 @@
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
   "dependencies": {
-    "coffee-script": "~1"
+    "coffee-script": "~1",
+    "object-assign": "^4.1.0"
   },
   "peerDependencies": {
     "karma": ">=0.11.14"
