@@ -13,8 +13,8 @@ var createCoffeePreprocessor = function (args, config, logger, helper) {
   var options = helper.merge(defaultOptions, args.options || {}, config.options || {})
 
   var transformPath = args.transformPath || config.transformPath || function (filepath) {
-      return filepath.replace(/\.coffee$/, '.js')
-    }
+    return filepath.replace(/\.coffee$/, '.js')
+  }
 
   return function (content, file, done) {
     var result = null
