@@ -38,17 +38,20 @@
     "load-grunt-tasks": "^3.2.0"
   },
   "contributors": [
+    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Friedel Ziegelmayer <friedel.ziegelmayer@gmail.com>",
+    "dignifiedquire <dignifiedquire@gmail.com>",
     "Niall Smart <niall@pobox.com>",
     "Zachary Wright Heller <zheller@gmail.com>",
-    "dignifiedquire <dignifiedquire@gmail.com>",
-    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
-    "Anthony Torres <anthony.torres@issinc.com>",
+    "Avindra Goolcharan <aavindraa@gmail.com>",
+    "Mark Ethan Trostler <mark@zzo.com>",
     "ehuss <eric@huss.org>",
     "Isaac Shapira <fresheyeball@gmail.com>",
     "Johannes Würbach <johannes.wuerbach@googlemail.com>",
     "Kyle <kyle.zeeuwen@gmail.com>",
     "Maksim Ryzhikov <rv.maksim@gmail.com>",
-    "Michael Kebbekus <michael.kebbekus@goodeggs.com>"
+    "Michael Kebbekus <michael.kebbekus@goodeggs.com>",
+    "Will Scullin <scullin@looker.com>",
+    "Anthony Torres <anthony.torres@issinc.com>"
   ]
 }
