@@ -1,3 +1,14 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/karma-runner/karma-coffee-preprocessor/compare/v1.0.0...v1.0.1) (2016-07-12)
+
+
+### Bug Fixes
+
+* use object-assign to stop deprecation notice ([#36](https://github.com/karma-runner/karma-coffee-preprocessor/issues/36)) ([769283e](https://github.com/karma-runner/karma-coffee-preprocessor/commit/769283e))
+* warnings in chrome. ([acc1bce](https://github.com/karma-runner/karma-coffee-preprocessor/commit/acc1bce))
+
+
+
 <a name"1.0.0"></a>
 ## 1.0.0 (2016-05-03)
 
