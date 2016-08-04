@@ -42,6 +42,11 @@ module.exports = function(config) {
     // make sure to include the .coffee files not the compiled .js files
     files: [
       '**/*.coffee'
+    ],
+
+    // the preprocessor should be included as plugin too
+    plugins: [
+      'karma-coffee-preprocessor'
     ]
   })
 }
