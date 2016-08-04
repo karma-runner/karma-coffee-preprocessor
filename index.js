@@ -27,6 +27,11 @@ var createCoffeePreprocessor = function (args, config, logger, helper) {
     // Clone the options because coffee.compile mutates them
     var opts = assign({}, options)
 
+    if (!('literate' in opts) &&
+        /\.(litcoffee|coffee\.md)$/.test(file.originalPath)) {
+      opts.literate = true
+    }
+
     try {
       result = coffee.compile(content, opts)
     } catch (e) {
