@@ -7,10 +7,13 @@
 
 > Preprocessor to compile CoffeeScript on the fly.
 
+Due to coffeescript@2 being only compatible with node@6 and higher, this module only supports this. If you want to work on node@4 please install `karma-coffee-preprocessor@^1`.
+
 ## Installation
 
 The easiest way is to keep `karma-coffee-preprocessor` as a devDependency.
 You can simple do it by:
+
 ```bash
 npm install karma-coffee-preprocessor --save-dev
 ```
@@ -49,7 +52,7 @@ module.exports = function(config) {
 
 If you set the `sourceMap` coffee compiler option to `true` then the generated source map will be inlined as a data-uri.
 
-Note that paths like "**/*.coffee" inside your "preprocessor" list will not match files where you are traversing up a directory (like "../app/*.coffee" inside your "files" list) or where your basePath goes up a directory. If you need to match these, use something like `preprocessors: { '../**/*.coffee': ['coffee'] }`.
+> **Note:** Paths like `**/*.coffee` inside your `"preprocessor"` list will not match files where you are traversing up a directory (like `../app/*.coffee` inside your `"files"` list) or where your `basePath` goes up a directory. If you need to match these, use something like `preprocessors: { '../**/*.coffee': ['coffee'] }`.
 ----
 
 For more information on Karma see the [homepage].
