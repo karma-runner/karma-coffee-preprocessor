@@ -1,4 +1,6 @@
-module.exports = function (grunt) {
+'use strict'
+
+module.exports = (grunt) => {
   grunt.initConfig({
     pkgFile: 'package.json',
     'npm-contributors': {
@@ -31,14 +33,23 @@ module.exports = function (grunt) {
         'index.js',
         'gruntfile.js'
       ]
+    },
+    karma: {
+      options: {
+        singleRun: true
+      },
+      simple: {
+        configFile: 'examples/simple/karma.conf.js'
+      }
     }
   })
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask('default', ['eslint'])
+  grunt.registerTask('test', ['karma'])
+  grunt.registerTask('default', ['eslint', 'test'])
 
-  grunt.registerTask('release', 'Bump the version and publish to NPM.', function (type) {
+  grunt.registerTask('release', 'Bump the version and publish to NPM.', (type) => {
     grunt.task.run([
       'npm-contributors',
       'bump-only:' + (type || 'patch'),

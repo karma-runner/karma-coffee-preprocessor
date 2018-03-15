@@ -7,10 +7,13 @@
 
 > Preprocessor to compile CoffeeScript on the fly.
 
+Due to coffeescript@2 being only compatible with node@6 and higher, this module only supports this. If you want to work on node@4 please install `karma-coffee-preprocessor@^1`.
+
 ## Installation
 
 The easiest way is to keep `karma-coffee-preprocessor` as a devDependency.
 You can simple do it by:
+
 ```bash
 npm install karma-coffee-preprocessor --save-dev
 ```
