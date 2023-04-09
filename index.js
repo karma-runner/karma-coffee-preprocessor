@@ -1,6 +1,5 @@
 var coffee = require('coffeescript')
 var path = require('path')
-var assign = require('object-assign')
 
 var createCoffeePreprocessor = function (args, config, logger, helper) {
   config = config || {}
@@ -25,7 +24,7 @@ var createCoffeePreprocessor = function (args, config, logger, helper) {
     file.path = transformPath(file.originalPath)
 
     // Clone the options because coffee.compile mutates them
-    var opts = assign({}, options)
+    var opts = Object.assign({}, options)
 
     try {
       result = coffee.compile(content, opts)
