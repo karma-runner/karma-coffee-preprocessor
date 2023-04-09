@@ -14,11 +14,12 @@
     "karma-plugin",
     "karma-preprocessor",
     "coffee-script",
+    "coffeescript",
     "coffee"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
   "dependencies": {
-    "coffee-script": "~1",
+    "coffeescript": "^2.7.0",
     "object-assign": "^4.1.0"
   },
   "peerDependencies": {

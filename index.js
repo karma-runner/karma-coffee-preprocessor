@@ -1,4 +1,4 @@
-var coffee = require('coffee-script')
+var coffee = require('coffeescript')
 var path = require('path')
 var assign = require('object-assign')
 
