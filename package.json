@@ -4,7 +4,9 @@
   "description": "A Karma plugin. Compile coffee script on the fly.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "grunt eslint",
+    "check": "grunt karma",
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -33,12 +35,17 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^4.1.0",
-    "grunt": "~1.6.1",
+    "grunt": "^1.6.1",
     "grunt-bump": "^0.8.0",
     "grunt-conventional-changelog": "^6.1.0",
     "grunt-eslint": "^24.0.1",
+    "grunt-karma": "^4.0.2",
     "grunt-npm": "0.0.2",
-    "load-grunt-tasks": "^5.1.0"
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-mocha": "^2.0.1",
+    "load-grunt-tasks": "^5.1.0",
+    "mocha": "^10.2.0"
   },
   "contributors": [
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",

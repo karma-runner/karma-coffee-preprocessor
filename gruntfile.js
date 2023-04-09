@@ -29,14 +29,20 @@ module.exports = function (grunt) {
     eslint: {
       target: [
         'index.js',
-        'gruntfile.js'
+        'gruntfile.js',
+        'examples/plus/karma.conf.js'
       ]
+    },
+    karma: {
+      example: {
+        configFile: 'examples/plus/karma.conf.js'
+      }
     }
   })
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask('default', ['eslint'])
+  grunt.registerTask('default', ['eslint', 'karma'])
 
   grunt.registerTask('release', 'Bump the version and publish to NPM.', function (type) {
     grunt.task.run([
