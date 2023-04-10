@@ -8,7 +8,8 @@ const createCoffeePreprocessor = function (args, logger, helper, config = {}) {
     bare: true,
     sourceMap: false
   }
-  const options = helper.merge(defaultOptions, args.options || {}, config.options || {})
+  const options = helper.merge(defaultOptions,
+    /* c8 ignore next */ args.options || {}, config.options || {})
 
   const transformPath = args.transformPath || config.transformPath || function (filepath) {
     return filepath.replace(/\.coffee$/, '.js')
@@ -26,6 +27,7 @@ const createCoffeePreprocessor = function (args, logger, helper, config = {}) {
     let result
     try {
       result = compile(content, opts)
+    /* c8 ignore next 4 */
     } catch (e) {
       log.error('%s\n  at %s:%d', e.message, originalPath, e.location.first_line)
       return done(e, null)

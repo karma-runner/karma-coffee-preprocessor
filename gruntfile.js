@@ -34,8 +34,17 @@ module.exports = function (grunt) {
       ]
     },
     karma: {
-      example: {
+      options: {
         configFile: 'examples/plus/karma.conf.js'
+      },
+      mapped: {
+      },
+      unmapped: {
+        coffeePreprocessor: {
+          options: {
+            sourceMap: false
+          }
+        }
       }
     }
   })
