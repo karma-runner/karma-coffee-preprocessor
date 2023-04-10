@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "A Karma plugin. Compile coffee script on the fly.",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "lint": "grunt eslint",
     "check": "grunt karma",
