@@ -1,0 +1,45 @@
+name: Test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v3
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: |
+          - args: [--frozen-lockfile, --no-verify-store-integrity]
+    - name: Test
+      run: npm test
+    - name: Coverage
+      uses: codecov/codecov-action@v3
+  test-windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v3
+    - name: Install Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: |
+          - args: [--frozen-lockfile, --no-verify-store-integrity]
+    - name: Test
+      run: npm test

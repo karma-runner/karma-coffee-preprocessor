@@ -1,54 +1,55 @@
-var coffee = require('coffee-script')
-var path = require('path')
-var assign = require('object-assign')
+const { compile } = require('coffeescript')
+const { basename } = require('path')
 
-var createCoffeePreprocessor = function (args, config, logger, helper) {
-  config = config || {}
+const createCoffeePreprocessor = function (args, logger, helper, config = {}) {
+  const log = logger.create('preprocessor.coffee')
 
-  var log = logger.create('preprocessor.coffee')
-  var defaultOptions = {
+  const defaultOptions = {
     bare: true,
     sourceMap: false
   }
-  var options = helper.merge(defaultOptions, args.options || {}, config.options || {})
+  const options = helper.merge(defaultOptions,
+    /* c8 ignore next */ args.options || {}, config.options || {})
 
-  var transformPath = args.transformPath || config.transformPath || function (filepath) {
+  const transformPath = args.transformPath || config.transformPath || function (filepath) {
     return filepath.replace(/\.coffee$/, '.js')
   }
 
   return function (content, file, done) {
-    var result = null
-    var map
-    var datauri
-
-    log.debug('Processing "%s".', file.originalPath)
-    file.path = transformPath(file.originalPath)
+    const { originalPath } = file
+    log.debug('Processing "%s".', originalPath)
+    const path = transformPath(originalPath)
+    file.path = path
 
     // Clone the options because coffee.compile mutates them
-    var opts = assign({}, options)
+    const opts = Object.assign({}, options)
 
+    let result
     try {
-      result = coffee.compile(content, opts)
+      result = compile(content, opts)
+    /* c8 ignore next 4 */
     } catch (e) {
-      log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line)
+      log.error('%s\n  at %s:%d', e.message, originalPath, e.location.first_line)
       return done(e, null)
     }
 
-    if (result.v3SourceMap) {
-      map = JSON.parse(result.v3SourceMap)
-      map.sources[0] = path.basename(file.originalPath)
+    const { js, v3SourceMap } = result
+    if (v3SourceMap) {
+      const map = JSON.parse(v3SourceMap)
+      map.sources[0] = basename(originalPath)
       map.sourcesContent = [content]
-      map.file = path.basename(file.path)
+      map.file = basename(path)
       file.sourceMap = map
-      datauri = 'data:application/json;charset=utf-8;base64,' + new Buffer(JSON.stringify(map)).toString('base64')
-      done(null, result.js + '\n//# sourceMappingURL=' + datauri + '\n')
+      const data = Buffer.from(JSON.stringify(map)).toString('base64')
+      const datauri = `data:application/json;charset=utf-8;base64,${data}`
+      done(null, `${js}\n//# sourceMappingURL=${datauri}\n`)
     } else {
-      done(null, result.js || result)
+      done(null, js || result)
     }
   }
 }
 
-createCoffeePreprocessor.$inject = ['args', 'config.coffeePreprocessor', 'logger', 'helper']
+createCoffeePreprocessor.$inject = ['args', 'logger', 'helper', 'config.coffeePreprocessor']
 
 // PUBLISH DI MODULE
 module.exports = {

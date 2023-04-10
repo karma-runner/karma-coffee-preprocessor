@@ -9,10 +9,16 @@
 
 ## Installation
 
-The easiest way is to keep `karma-coffee-preprocessor` as a devDependency.
-You can simple do it by:
-```bash
+The easiest way is to keep `karma-coffee-preprocessor` as a devDependency. You can simply do it by:
+
+```sh
 npm install karma-coffee-preprocessor --save-dev
+```
+
+This package requires `karma` and `coffeescript` as peer dependencies. If your package manager doesn't install peer dependencies automatically, you will need to install them together:
+
+```sh
+npm install karma-coffee-preprocessor karma coffeescript --save-dev
 ```
 
 ## Configuration

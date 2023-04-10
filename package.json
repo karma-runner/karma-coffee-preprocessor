@@ -3,8 +3,13 @@
   "version": "1.0.1",
   "description": "A Karma plugin. Compile coffee script on the fly.",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "grunt eslint",
+    "check": "grunt karma",
+    "test": "c8 grunt"
   },
   "repository": {
     "type": "git",
@@ -14,44 +19,64 @@
     "karma-plugin",
     "karma-preprocessor",
     "coffee-script",
+    "coffeescript",
     "coffee"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
-  "dependencies": {
-    "coffee-script": "~1",
-    "object-assign": "^4.1.0"
+  "c8": {
+    "100": true,
+    "include": [
+      "index.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "engines": {
+    "node": ">=8"
   },
   "peerDependencies": {
-    "karma": ">=0.11.14"
+    "coffeescript": "^2",
+    "karma": "^4 || ^5 || ^6"
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.0.1",
-    "eslint-config-standard": "^5.3.5",
-    "eslint-plugin-promise": "^1.3.2",
-    "eslint-plugin-standard": "^1.3.3",
-    "grunt": "~1.0.1",
+    "c8": "^7.13.0",
+    "coffeescript": "^2.7.0",
+    "eslint": "^8.38.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "grunt": "^1.6.1",
     "grunt-bump": "^0.8.0",
     "grunt-conventional-changelog": "^6.1.0",
-    "grunt-eslint": "^19.0.0",
+    "grunt-eslint": "^24.0.1",
+    "grunt-karma": "^4.0.2",
     "grunt-npm": "0.0.2",
-    "load-grunt-tasks": "^3.2.0"
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-mocha": "^2.0.1",
+    "load-grunt-tasks": "^5.1.0",
+    "mocha": "^10.2.0"
   },
   "contributors": [
+    "Ferdinand Prantl <prantlf@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Friedel Ziegelmayer <friedel.ziegelmayer@gmail.com>",
-    "dignifiedquire <dignifiedquire@gmail.com>",
     "Niall Smart <niall@pobox.com>",
     "Zachary Wright Heller <zheller@gmail.com>",
+    "dignifiedquire <dignifiedquire@gmail.com>",
     "Avindra Goolcharan <aavindraa@gmail.com>",
     "Mark Ethan Trostler <mark@zzo.com>",
-    "ehuss <eric@huss.org>",
+    "Anthony Torres <anthony.torres@issinc.com>",
+    "Chris Dawson <xrdawson@gmail.com>",
     "Isaac Shapira <fresheyeball@gmail.com>",
     "Johannes Würbach <johannes.wuerbach@googlemail.com>",
     "Kyle <kyle.zeeuwen@gmail.com>",
     "Maksim Ryzhikov <rv.maksim@gmail.com>",
     "Michael Kebbekus <michael.kebbekus@goodeggs.com>",
     "Will Scullin <scullin@looker.com>",
-    "Anthony Torres <anthony.torres@issinc.com>"
+    "ehuss <eric@huss.org>"
   ]
 }
