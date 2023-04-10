@@ -24,10 +24,10 @@
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
   "c8": {
+    "100": true,
     "include": [
       "index.js"
     ],
-    "100": true,
     "reporter": [
       "lcov",
       "text"
@@ -61,20 +61,22 @@
     "mocha": "^10.2.0"
   },
   "contributors": [
+    "Ferdinand Prantl <prantlf@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Friedel Ziegelmayer <friedel.ziegelmayer@gmail.com>",
-    "dignifiedquire <dignifiedquire@gmail.com>",
     "Niall Smart <niall@pobox.com>",
     "Zachary Wright Heller <zheller@gmail.com>",
+    "dignifiedquire <dignifiedquire@gmail.com>",
     "Avindra Goolcharan <aavindraa@gmail.com>",
     "Mark Ethan Trostler <mark@zzo.com>",
-    "ehuss <eric@huss.org>",
+    "Anthony Torres <anthony.torres@issinc.com>",
+    "Chris Dawson <xrdawson@gmail.com>",
     "Isaac Shapira <fresheyeball@gmail.com>",
     "Johannes Würbach <johannes.wuerbach@googlemail.com>",
     "Kyle <kyle.zeeuwen@gmail.com>",
     "Maksim Ryzhikov <rv.maksim@gmail.com>",
     "Michael Kebbekus <michael.kebbekus@goodeggs.com>",
     "Will Scullin <scullin@looker.com>",
-    "Anthony Torres <anthony.torres@issinc.com>"
+    "ehuss <eric@huss.org>"
   ]
 }
